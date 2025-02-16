@@ -1,11 +1,10 @@
 import { JSX } from "react";
+import LandingPage from "./section/landingPage";
 
 function Home(): JSX.Element {
   return (
     <>
-      <div className="p-6">
-        <h2 className="text-2xl font-bold"> Home </h2>{" "}
-      </div>
+      <LandingPage />
     </>
   );
 }

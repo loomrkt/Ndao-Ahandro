@@ -3,7 +3,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    './node_modules/flyonui/dist/js/*.js',
+    "./node_modules/flyonui/dist/js/*.js",
   ],
   theme: {
     extend: {},
@@ -11,29 +11,26 @@ export default {
   flyonui: {
     themes: [
       {
-        light   : {
+        light: {
           ...require("flyonui/src/theming/themes")["light"],
-          primary: "blue",
-          secondary: "teal"
-        }
+          primary: "#F29A18",
+          secondary: "#F1D9A7",
+        },
       },
       {
         theme2: {
           ...require("flyonui/src/theming/themes")["dark"],
-          primary: "#a991f7",
-          secondary: "#f6d860",
-          accent: "#37cdbe",
-          neutral: "#3d4451",
+          primary: "#F3A738",
+          secondary: "#F1D9A7",
+          accent: "#ffffff",
+          neutral: "#ffffff",
           "base-100": "#000000",
-
-        }
-      }
+          "--bc": "100% 0 0",
+        },
+      },
     ],
   },
-  darkMode: ['className', '[data-theme="theme2"]'],
-  plugins: [
-    require('flyonui'),
-    require('flyonui/plugin')
-  ],
-}
+  darkMode: ["className", '[data-theme="theme2"]'],
+  plugins: [require("flyonui"), require("flyonui/plugin")],
+};
 

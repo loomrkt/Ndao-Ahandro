@@ -4,7 +4,7 @@ import { useLocation, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/navbar";
 import Preload from "./Components/preload";
 
-import Home from "./pages/home";
+import Home from "./pages/home/home";
 
 import { IStaticMethods } from "flyonui/flyonui";
 declare global {
@@ -14,7 +14,6 @@ declare global {
 }
 
 function App() {
-  const location = useLocation();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,16 +27,16 @@ function App() {
     };
 
     loadFlyonui();
-  }, [location.pathname]);
+  });
 
   if (loading) {
     return <Preload />;
   }
 
   return (
-    <div className="min-h-screen bg-base-200/60">
+    <div className="min-h-screen bg-base-200/60 relative">
       <Navbar />
-      <div className="p-6">
+      <div>
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
