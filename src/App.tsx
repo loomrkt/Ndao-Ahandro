@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./Components/navbar";
 import Preload from "./Components/preload";
