@@ -25,7 +25,12 @@ export default {
           accent: "#ffffff",
           neutral: "#ffffff",
           "base-100": "#000000",
+          "base-200": "#191610",
           "--bc": "100% 0 0",
+          "--bg": "100% 0 0",
+          ".text-wp": {
+            color: "rgba(255, 255, 255, 0.5)",
+          },
         },
       },
     ],

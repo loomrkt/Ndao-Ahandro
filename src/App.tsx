@@ -7,6 +7,7 @@ import Preload from "./Components/preload";
 import Home from "./pages/home/home";
 
 import { IStaticMethods } from "flyonui/flyonui";
+import Footer from "./Components/footer";
 declare global {
   interface Window {
     HSStaticMethods: IStaticMethods;
@@ -41,6 +42,7 @@ function App() {
           <Route path="/" element={<Home />} />
         </Routes>
       </div>
+      <Footer />
     </div>
   );
 }

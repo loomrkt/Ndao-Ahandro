@@ -8,6 +8,10 @@ function ThemeController({ isTop }: ThemeControllerProps): JSX.Element {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
+    const theme = localStorage.getItem("theme");
+    if (theme === "theme2") {
+      setIsDarkMode(true);
+    }
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
       document.documentElement.setAttribute("data-theme", "theme2");
@@ -19,6 +23,7 @@ function ThemeController({ isTop }: ThemeControllerProps): JSX.Element {
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
+    localStorage.setItem("theme", isDarkMode ? "theme1" : "theme2");
   };
 
   return (
