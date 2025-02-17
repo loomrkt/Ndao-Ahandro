@@ -24,7 +24,7 @@ function CardFood(): JSX.Element {
           <h5 className="card-title mb-2 text-base">Apple Smart Watch</h5>
           <div className="flex items-center justify-between text-sm">
             <a className="flex items-center gap-2" href="#">
-              <Avatar hasAvatar={hasAvatar} name="Nameno Rkt" />
+              <Avatar hasAvatar={hasAvatar} name="Nameno Rkt" size="size-6" />
               <span className="text-wp">Nameno Rkt</span>
             </a>
             <div className="flex items-center gap-2">

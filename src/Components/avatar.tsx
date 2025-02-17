@@ -1,26 +1,32 @@
 import { JSX } from "react";
 
 interface AvatarProps {
-    hasAvatar: boolean;
-    name: string;
+  hasAvatar: boolean;
+  name: string;
+  size: string;
 }
 
-function Avatar({hasAvatar, name}:AvatarProps):JSX.Element {
-    return ( <>
-        {hasAvatar ? (
-            <div className="avatar">
-                <div className="size-6 rounded-full">
-                <img src="https://cdn.flyonui.com/fy-assets/avatar/avatar-1.png" alt="avatar" />
-                </div>
+function Avatar({ hasAvatar, name, size }: AvatarProps): JSX.Element {
+  return (
+    <>
+      {hasAvatar ? (
+        <div className="avatar">
+          <div className={` rounded-full ${size}`}>
+            <img
+              src="https://cdn.flyonui.com/fy-assets/avatar/avatar-1.png"
+              alt="avatar"
+            />
           </div>
-        ) : (
-            <div className="avatar placeholder">
-                <div className="bg-primary/20 text-primary w-6 rounded-full">
-                    <span className="text-md uppercase">{name[0]}</span>
-                </div>
-            </div>
-        )}
-    </> );
+        </div>
+      ) : (
+        <div className="avatar placeholder">
+          <div className={`bg-primary/20 text-primary rounded-full ${size}`}>
+            <span className="text-md uppercase">{name[0]}</span>
+          </div>
+        </div>
+      )}
+    </>
+  );
 }
 
 export default Avatar;
