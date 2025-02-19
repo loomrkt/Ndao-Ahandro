@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const { addDynamicIconSelectors } = require("@iconify/tailwind");
 export default {
   content: [
     "./index.html",
@@ -38,6 +39,10 @@ export default {
     ],
   },
   darkMode: ["className", '[data-theme="theme2"]'],
-  plugins: [require("flyonui"), require("flyonui/plugin")],
+  plugins: [
+    require("flyonui"),
+    require("flyonui/plugin"),
+    addDynamicIconSelectors(),
+  ],
 };
 

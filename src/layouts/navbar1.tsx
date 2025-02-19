@@ -1,32 +1,20 @@
-import { useState, useEffect } from "react";
-import ThemeController from "./ThemeController";
+import ThemeController from "../Components/ThemeController";
 import logo from "../assets/logo.png";
-import Button1 from "./buttons/button1";
+import Button1 from "../Components/buttons/button1";
+import { Link } from "react-router-dom";
+import FilterBtn from "../Components/filterBtn";
 
-function Navbar() {
-  const [isAtTop, setIsAtTop] = useState(true);
+interface Navbar1Props {
+  toggleSidebar?: () => void;
+}
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsAtTop(window.scrollY === 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+function Navbar1({ toggleSidebar }: Navbar1Props) {
   return (
     <>
-      <nav
-        className={`navbar fixed top-0 left-0 z-50  ${
-          isAtTop ? "bg-transparent " : "shadow"
-        }`}
-      >
+      <nav className={`navbar z-50 `}>
         <div className="navbar-start">
           <a
-            className={`link text-xl font-semibold no-underline flex items-center gap-2 ${
-              isAtTop ? "text-white" : ""
-            }`}
+            className={`link text-xl font-semibold no-underline flex items-center gap-2`}
             href="#"
           >
             <img src={logo} alt="logo" className="w-7 h-auto" />
@@ -34,23 +22,22 @@ function Navbar() {
           </a>
         </div>
         <div className="navbar-center max-md:hidden">
-          <ul
-            className={` menu-horizontal gap-4 p-0 text-base rtl:ml-20 ${
-              isAtTop ? "text-white" : ""
-            }`}
-          >
+          <ul className={` menu-horizontal gap-4 p-0 text-base rtl:ml-20 `}>
             <li>
-              <a href="#">Accuiel</a>
+              <Link to="/">Accuiel</Link>
             </li>
             <li>
-              <a href="#">Les recettes</a>
+              <Link to="/recette">Les recettes</Link>
             </li>
             <li>
-              <a href="#">contact</a>
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
         </div>
-        <div className="navbar-end items-center gap-4">
+        <div className="navbar-end items-center gap-2 sm:gap-4">
+          { toggleSidebar && <div className="flex md:hidden">
+            <FilterBtn toggleSidebar={toggleSidebar} />
+          </div>}
           <div className="dropdown relative inline-flex md:hidden rtl:[--placement:bottom-end]">
             <button
               id="dropdown-default"
@@ -70,13 +57,13 @@ function Navbar() {
               aria-labelledby="dropdown-default"
             >
               <li>
-                <a href="#">Accuiel</a>
+                <Link to="/">Accuiel</Link>
               </li>
               <li>
-                <a href="#">Les recettes</a>
+                <Link to="/recette">Les recettes</Link>
               </li>
               <li>
-                <a href="#">contact</a>
+                <Link to="/contact">Contact</Link>
               </li>
               <li>
                 <a href="" className="flex items-center gap-4">
@@ -86,7 +73,7 @@ function Navbar() {
             </ul>
           </div>
           <div className="flex items-center gap-4 flex-row">
-            <ThemeController isTop={isAtTop} />
+            <ThemeController isTop={false} />
             <a href="" className="hidden md:flex items-center gap-4">
               <Button1 text="S'inscrire" />
             </a>
@@ -97,4 +84,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Navbar1;

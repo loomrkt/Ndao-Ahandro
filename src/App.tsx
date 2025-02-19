@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Navbar from "./Components/navbar";
 import Preload from "./Components/preload";
 
 import Home from "./pages/home/home";
 
 import { IStaticMethods } from "flyonui/flyonui";
-import Footer from "./Components/footer";
+import Recette from "./pages/recette/recette";
+import LayoutWithNavbar from "./layouts/LayoutWithNavbar";
+import LayoutWithNavbar1 from "./layouts/LayoutWithNavbar1";
+import useScrollToTop from "./hooks/useScrollToTop";
+import Contact from "./pages/contact/contact";
+import LayoutWithNavbar1WithoutAside from "./layouts/LayoutWithNavbar1WithoutAside";
 declare global {
   interface Window {
     HSStaticMethods: IStaticMethods;
@@ -29,6 +33,7 @@ function App() {
 
     loadFlyonui();
   });
+  useScrollToTop();
 
   if (loading) {
     return <Preload />;
@@ -36,13 +41,32 @@ function App() {
 
   return (
     <div className="min-h-screen bg-base-200/60 relative">
-      <Navbar />
-      <div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </div>
-      <Footer />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <LayoutWithNavbar>
+              <Home />
+            </LayoutWithNavbar>
+          }
+        />
+        <Route
+          path="/recette"
+          element={
+            <LayoutWithNavbar1>
+              <Recette />
+            </LayoutWithNavbar1>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <LayoutWithNavbar1WithoutAside>
+              <Contact />
+            </LayoutWithNavbar1WithoutAside>
+          }
+        />
+      </Routes>
     </div>
   );
 }
