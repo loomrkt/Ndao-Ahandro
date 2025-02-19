@@ -1,32 +1,38 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import ThemeController from "../Components/ThemeController";
 import logo from "../assets/logo.png";
 import Button1 from "../Components/buttons/button1";
 import { Link } from "react-router-dom";
+import FilterBtn from "../Components/filterBtn";
 
 function Navbar() {
   const [isAtTop, setIsAtTop] = useState(true);
-
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+  const isRecettePage = location.pathname === "/recette";
   useEffect(() => {
+    if (!isHomePage) return;
+
     const handleScroll = () => {
       setIsAtTop(window.scrollY === 0);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHomePage]);
 
   return (
     <>
       <nav
         className={`navbar fixed top-0 left-0 z-50  ${
-          isAtTop ? "bg-transparent " : "shadow"
+          isHomePage && isAtTop ? "bg-transparent " : "shadow"
         }`}
       >
         <div className="navbar-start">
           <a
             className={`link text-xl font-semibold no-underline flex items-center gap-2 ${
-              isAtTop ? "text-white" : ""
+              isHomePage && isAtTop ? "text-white" : ""
             }`}
             href="#"
           >
@@ -37,7 +43,7 @@ function Navbar() {
         <div className="navbar-center max-md:hidden">
           <ul
             className={` menu-horizontal gap-4 p-0 text-base rtl:ml-20 ${
-              isAtTop ? "text-white" : ""
+              isHomePage && isAtTop ? "text-white" : ""
             }`}
           >
             <li>
@@ -52,6 +58,11 @@ function Navbar() {
           </ul>
         </div>
         <div className="navbar-end items-center gap-4">
+          {isRecettePage && (
+            <div className="flex md:hidden">
+              <FilterBtn />
+            </div>
+          )}
           <div className="dropdown relative inline-flex md:hidden rtl:[--placement:bottom-end]">
             <button
               id="dropdown-default"
@@ -87,7 +98,7 @@ function Navbar() {
             </ul>
           </div>
           <div className="flex items-center gap-4 flex-row">
-            <ThemeController isTop={isAtTop} />
+            <ThemeController isTop={isHomePage && isAtTop} />
             <a href="" className="hidden md:flex items-center gap-4">
               <Button1 text="S'inscrire" />
             </a>
