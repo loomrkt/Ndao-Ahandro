@@ -91,17 +91,17 @@ function Navbar() {
                 <Link to="/contact">Contact</Link>
               </li>
               <li>
-                <a href="" className="flex items-center gap-4">
+                <div className="flex items-center gap-4">
                   <Button1 path="/register" text="S'inscrire" />
-                </a>
+                </div>
               </li>
             </ul>
           </div>
           <div className="flex items-center gap-4 flex-row">
             <ThemeController isTop={isHomePage && isAtTop} />
-            <a href="" className="hidden md:flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-4">
               <Button1 path="/register" text="S'inscrire" />
-            </a>
+            </div>
           </div>
         </div>
       </nav>

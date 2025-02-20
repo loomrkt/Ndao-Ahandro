@@ -1,7 +1,7 @@
 import { JSX, ReactNode } from "react";
 import { Link } from "react-router-dom";
 
-import Landing from "./../assets/landing.jpg";
+import auth from "./../assets/auth.jpg";
 
 interface LayoutAuthentificationProps {
   children: ReactNode;
@@ -19,7 +19,7 @@ function LayoutAuthentification({
         <div className="grid md:grid-cols-2 items-center gap-8 h-full">
           <div className="max-md:order-1 bg-gray-50 h-full hidden md:block">
             <img
-              src={Landing}
+              src={auth}
               className=" w-full h-full object-cover block mx-auto"
               alt="login-image"
             />
