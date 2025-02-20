@@ -10,6 +10,9 @@ import Contact from "./pages/contact/contact";
 import Ln from "./layouts/ln";
 import Sidebar from "./layouts/sidebar";
 import { SidebarProvider } from "./contexts/SidebarContext";
+import LayoutWithoutNavbar from "./layouts/LayoutWithoutNavbar";
+import Login from "./pages/authentification/login";
+import Register from "./pages/authentification/register";
 
 declare global {
   interface Window {
@@ -68,6 +71,22 @@ function App() {
             <Ln>
               <Contact />
             </Ln>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <LayoutWithoutNavbar>
+              <Login />
+            </LayoutWithoutNavbar>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <LayoutWithoutNavbar>
+              <Register />
+            </LayoutWithoutNavbar>
           }
         />
       </Routes>

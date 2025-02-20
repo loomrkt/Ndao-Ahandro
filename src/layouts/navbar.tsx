@@ -92,7 +92,7 @@ function Navbar() {
               </li>
               <li>
                 <a href="" className="flex items-center gap-4">
-                  <Button1 text="S'inscrire" />
+                  <Button1 path="/register" text="S'inscrire" />
                 </a>
               </li>
             </ul>
@@ -100,7 +100,7 @@ function Navbar() {
           <div className="flex items-center gap-4 flex-row">
             <ThemeController isTop={isHomePage && isAtTop} />
             <a href="" className="hidden md:flex items-center gap-4">
-              <Button1 text="S'inscrire" />
+              <Button1 path="/register" text="S'inscrire" />
             </a>
           </div>
         </div>
