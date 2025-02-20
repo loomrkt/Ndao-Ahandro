@@ -29,7 +29,7 @@ function Faq():JSX.Element {
                 "When is payment taken for my order?",
                 "How do I change my order?",
                 "How do I return an item?",
-              ].map((item, index) => (
+              ].map((index) => (
                 <FaqElement id={`faq-${index}`} key={index} />
               ))}
             </div>
