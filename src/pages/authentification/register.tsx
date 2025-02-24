@@ -105,12 +105,14 @@ function Register(): JSX.Element {
         </div>
 
         <div className="mt-8">
-          <button
-            type="button"
-            className="w-full py-2.5 px-4 text-sm tracking-wider rounded bg-primary hover:bg-opacity-90 text-white focus:outline-none"
-          >
-            S'inscrire
-          </button>
+          <Link to={"/login"}>
+            <button
+              type="button"
+              className="w-full py-2.5 px-4 text-sm tracking-wider rounded bg-primary hover:bg-opacity-90 text-white focus:outline-none"
+            >
+              S'inscrire
+            </button>
+          </Link>
         </div>
 
         <div className="my-3">
