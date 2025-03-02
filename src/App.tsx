@@ -14,7 +14,7 @@ import Login from "./pages/authentification/login";
 import Register from "./pages/authentification/register";
 import LayoutAuthentification from "./layouts/LayoutAuthentification";
 import LayoutWithoutNavbar from "./layouts/LayoutWithoutNavbar";
-import Dashboard from "./pages/dashboard/dashboard";
+import Profil from "./pages/profil/profil";
 
 declare global {
   interface Window {
@@ -92,10 +92,10 @@ function App() {
           }
         />
         <Route
-          path="/dashboard"
+          path="/profil"
           element={
             <LayoutWithoutNavbar>
-              <Dashboard />
+              <Profil />
             </LayoutWithoutNavbar>
           }
         />

@@ -5,7 +5,7 @@ import logo from "../assets/logo.png";
 import Button1 from "../Components/buttons/button1";
 import { Link } from "react-router-dom";
 import FilterBtn from "../Components/filterBtn";
-import DropProfil from "../Components/dashboard/dropProfil";
+import DropProfil from "../Components/profil/dropProfil";
 
 function Navbar() {
   const [isAtTop, setIsAtTop] = useState(true);
@@ -24,7 +24,7 @@ function Navbar() {
   }, [isHomePage]);
 
   useEffect(() => {
-    setIsLogin(true);
+    setIsLogin(false);
   });
 
   return (
@@ -95,11 +95,13 @@ function Navbar() {
               <li>
                 <Link to="/contact">Contact</Link>
               </li>
-              <li>
-                <div className="flex items-center gap-4">
-                  <Button1 path="/register" text="S'inscrire" />
-                </div>
-              </li>
+              {!isLogin && (
+                <li>
+                  <div className="flex items-center gap-4">
+                    <Button1 path="/register" text="S'inscrire" />
+                  </div>
+                </li>
+              )}
             </ul>
           </div>
           <div className="flex items-center gap-4 flex-row">
