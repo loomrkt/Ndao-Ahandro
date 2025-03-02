@@ -13,6 +13,8 @@ import { SidebarProvider } from "./contexts/SidebarContext";
 import Login from "./pages/authentification/login";
 import Register from "./pages/authentification/register";
 import LayoutAuthentification from "./layouts/LayoutAuthentification";
+import LayoutWithoutNavbar from "./layouts/LayoutWithoutNavbar";
+import Dashboard from "./pages/dashboard/dashboard";
 
 declare global {
   interface Window {
@@ -87,6 +89,14 @@ function App() {
             <LayoutAuthentification>
               <Register />
             </LayoutAuthentification>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <LayoutWithoutNavbar>
+              <Dashboard />
+            </LayoutWithoutNavbar>
           }
         />
       </Routes>

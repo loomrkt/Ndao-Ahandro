@@ -5,9 +5,11 @@ import logo from "../assets/logo.png";
 import Button1 from "../Components/buttons/button1";
 import { Link } from "react-router-dom";
 import FilterBtn from "../Components/filterBtn";
+import DropProfil from "../Components/dashboard/dropProfil";
 
 function Navbar() {
   const [isAtTop, setIsAtTop] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const isRecettePage = location.pathname === "/recette";
@@ -17,10 +19,13 @@ function Navbar() {
     const handleScroll = () => {
       setIsAtTop(window.scrollY === 0);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHomePage]);
+
+  useEffect(() => {
+    setIsLogin(true);
+  });
 
   return (
     <>
@@ -99,9 +104,16 @@ function Navbar() {
           </div>
           <div className="flex items-center gap-4 flex-row">
             <ThemeController isTop={isHomePage && isAtTop} />
-            <div className="hidden md:flex items-center gap-4">
-              <Button1 path="/register" text="S'inscrire" />
-            </div>
+            {isLogin && (
+              <div>
+                <DropProfil />
+              </div>
+            )}
+            {!isLogin && (
+              <div className="hidden md:flex items-center gap-4">
+                <Button1 path="/register" text="S'inscrire" />
+              </div>
+            )}
           </div>
         </div>
       </nav>
